@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: rgb(244, 244, 245);
+}
+
+div > .active {
+    opacity: 1;
+}
+
+nav > .active {
+    color:rgb(249, 115, 22);
+    border-bottom: 1px solid rgb(249, 115, 22);
+}

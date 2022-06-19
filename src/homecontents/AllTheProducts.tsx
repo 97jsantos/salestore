@@ -1,0 +1,154 @@
+import { useState, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
+import { Pagination } from "../components/Pagination"
+import { ProductCard } from "../components/ProductCard"
+
+import casa from '../images/casa.png'
+import decoracao from '../images/decoracao.png'
+import eletronicos from '../images/eletronicos.png'
+import esportes from '../images/esportes.png'
+import informatica from '../images/informatica.png'
+import lazer from '../images/lazer.png'
+
+export function AllTheProducts() {
+
+    const [product, setProduct] = useState([])
+
+    const navigate = useNavigate()
+
+    const [currentPage, setCurrentPage] = useState(0)
+
+    const itensPerPage = 12
+
+    const pages = Math.ceil(product.length / itensPerPage)
+
+    const startIndex = currentPage * itensPerPage
+
+    const endIndex = startIndex + itensPerPage
+
+    const currentProduct = product.slice(startIndex, endIndex)
+
+    useEffect(() => {
+
+            fetch('http://localhost:5000/products', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((resp) => resp.json())
+            .then((data) => {
+                console.log(data)
+                setProduct(data)
+            })
+            .catch((err) => console.log(err))
+    },[])
+
+    function removeProduct(id) {
+        fetch(`http://localhost:5000/products/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        .then((resp) => resp.json())
+        .then(() => {
+            setProduct(product.filter((product: any) => product.id !== id))
+        })
+        .catch((err) => console.log(err))
+    }
+
+    function addProduct(product) {
+
+        {product.total === product.productAmount && 
+
+        fetch(`http://localhost:5000/carrinho`, {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(product),
+        })
+            .then((resp) => resp.json())
+            .then((data) => {
+                console.log(data)
+            })
+            .catch((err) => console.log(err))
+        }
+
+    }
+
+    function changeProductAmount(id, product) {
+
+        product.productAmount = product.productAmount - 1
+        product.cartAmount = product.cartAmount + 1
+
+        fetch(`http://localhost:5000/products/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(product),
+    })
+        .then((resp) => resp.json())
+        .then((data) => {
+            console.log(data)
+            navigate(`/carrinho`)
+        })
+        .catch((err) => console.log(err))
+    }
+
+    function changeCartAmount(id, product) {
+
+        fetch(`http://localhost:5000/carrinho/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(product),
+    })
+        .then((resp) => resp.json())
+        .then((data) => {
+            console.log(data)
+        })
+        .catch((err) => console.log(err))
+    }
+        
+    return (
+        <div className="max-w-screen-xl mx-auto mt-14 flex flex-col items-center justify-center">
+            {product.length > 12 && (
+                <Pagination 
+                key={pages}
+                pages={pages} 
+                currentPage={currentPage} 
+                setCurrentPage={setCurrentPage}
+                />
+            )}
+
+            <div className="min-h-screen max-w-7xl flex justify-center flex-wrap mt-20">
+            {product.length > 0 ? (
+                currentProduct.map((product: any) => (
+                    <ProductCard
+                        image={product.category.url === "casa" && casa || product.category.url === "decoracao" && decoracao || product.category.url === "eletronicos" && eletronicos || product.category.url === "esportes" && esportes || product.category.url === "informatica" && informatica || product.category.url === "lazer" && lazer}
+                        id={product.id}
+                        alt={product.id}
+                        title={product.name}
+                        budget={product.budget}
+                        productAmount={product.productAmount}
+                        key={product.id}
+                        productData={product}
+                        handleRemove={removeProduct}
+                        addProduct={addProduct}
+                        changeProductAmount={changeProductAmount}
+                        changeCartAmount={changeCartAmount}
+                        handleDisabled={product.productAmount === 0}
+                    />
+            ))): (
+                <div className="flex items-start">
+                    <p className="flex justify-center items-center gap-3 text-5xl text-zinc-600">Sem produtos</p>
+                </div>
+            )}
+            </div>
+        </div>
+    )
+}
