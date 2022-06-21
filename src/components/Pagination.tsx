@@ -1,6 +1,6 @@
 export function Pagination({ pages, currentPage, setCurrentPage, key }) {
     return (
-        <div className="mt-10 flex">
+        <div className="flex">
             <button 
             className="px-3 mx-1 bg-white text-orange-500 border border-zinc-300 disabled:opacity-50"
             onClick={() => setCurrentPage(currentPage - 1)}

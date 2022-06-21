@@ -115,7 +115,7 @@ export function AllTheProducts() {
     }
         
     return (
-        <div className="max-w-screen-xl mx-auto mt-14 flex flex-col items-center justify-center">
+        <div className="max-w-screen-xl mx-auto xl:mt-20 lg:mt-14 sm:mt-10 mt-5 flex flex-col items-center justify-center">
             {product.length > 12 && (
                 <Pagination 
                 key={pages}
@@ -125,7 +125,7 @@ export function AllTheProducts() {
                 />
             )}
 
-            <div className="min-h-screen max-w-7xl flex justify-center flex-wrap mt-20">
+            <div className="min-h-screen max-w-7xl flex justify-center flex-wrap xl:mt-20 lg:mt-14 sm:mt-10 mt-5">
             {product.length > 0 ? (
                 currentProduct.map((product: any) => (
                     <ProductCard

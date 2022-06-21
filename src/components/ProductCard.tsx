@@ -25,11 +25,6 @@ export function ProductCard({ id, image, alt, title, budget, productAmount, hand
 
     const dispatch = useAppDispatch()
 
-    function edit(event) {
-        event.preventDefault()
-        handleEdit(id)
-    }
-
     function remove(event) {
         event.preventDefault()
         handleRemove(id)
@@ -48,23 +43,21 @@ export function ProductCard({ id, image, alt, title, budget, productAmount, hand
       }
 
     return (
-        <form onSubmit={handleOnSubmit} className="flex flex-col bg-white h-96 w-64 mx-7 mb-14 rounded-md shadow-lg shadow-zinc-300">
-            <div className='w-full flex justify-between'>
-                <button onClick={edit} className='h-10 p-2'>
-                    <BsFillPencilFill className='text-orange-500 flex justify-start text-2xl ml-5'/>
-                </button>
-                <button onClick={remove} className='h-10 p-2'>
-                    <BsFillTrashFill className='text-orange-500 flex justify-end text-2xl mr-5'/>
+        <form onSubmit={handleOnSubmit} className="flex flex-col bg-white lg:h-96 lg:w-64 lg:mx-8 lg:mb-16
+        h-72 w-48 md:mx-6 md:mb-12 mx-2 mb-4 rounded-md shadow-lg shadow-zinc-300">
+            <div className='w-full flex justify-end'>
+                <button onClick={remove} className='lg:h-10 lg:p-2'>
+                    <BsFillTrashFill className='text-orange-500 lg:text-2xl mr-2 mt-2'/>
                 </button>
             </div>
-            <div className="h-40 flex items-center justify-center">
+            <div className="lg:h-40 md:h-30 flex items-center justify-center">
                 <img className="max-w-fit max-h-fit" src={image} alt={alt} />
             </div>
             <div className="flex flex-col mx-5">
-                <p className="mb-2 h-12">{title}</p>
-                <p className="mb-2 font-bold text-lg text-zinc-500 flex justify-start">{budget.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
-                <p className="mb-2 text-sm text-zinc-500 flex justify-end">Disponível: {productAmount}</p>
-                <button disabled={handleDisabled} onClick={handleOnClick} className="bg-orange-500 text-white rounded-md h-10 opacity-90 hover:opacity-100 disabled:opacity-50">Adicionar ao carrinho</button>
+                <p className="lg:mb-2 lg:h-12">{title}</p>
+                <p className="lg:mb-2 font-bold lg:text-lg text-zinc-500 flex justify-start">{budget.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+                <p className="lg:mb-2 mb-1 text-sm text-zinc-500 flex justify-end">Disponível: {productAmount}</p>
+                <button disabled={handleDisabled} onClick={handleOnClick} className="bg-orange-500 text-white rounded-md lg:h-10 h-7 lg:text-base text-sm opacity-90 hover:opacity-100 disabled:opacity-50">Adicionar ao carrinho</button>
             </div>
         </form>
     )

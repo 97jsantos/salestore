@@ -40,7 +40,7 @@ export function SlideProducts() {
     }
 
     return (
-        <div className="max-w-screen-xl mx-auto mt-10">
+        <div className="max-w-screen-xl mx-auto xl:mt-10 lg:mt-8 md:mt-6 mt-3 px-5">
           <div className="w-full relative select-none">
             <div className='aspect-auto flex justify-center'>
                 <img src={featuredProducts[currentIndex]} alt="" />

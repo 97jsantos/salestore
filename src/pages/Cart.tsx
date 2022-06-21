@@ -21,7 +21,7 @@ export function Cart({ cartAmount }:cartProps) {
 
     const [product, setProduct] = useState([])
 
-    const [ cartBudget, setCartBudget ] = useState(0)
+    const [ cartSubtotal, setCartSubtotal ] = useState(0)
 
     const navigate = useNavigate()
 
@@ -39,24 +39,30 @@ export function Cart({ cartAmount }:cartProps) {
 
     useEffect(() => {
 
-            fetch('http://localhost:5000/carrinho', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
+        fetch('http://localhost:5000/carrinho', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then((resp) => resp.json())
+        .then((data) => {
+            console.log(data)
+            setProduct(data)
+
+            setCartSubtotal(data.reduce((sum, totalCartBudget) => {
+            return sum + totalCartBudget.totalBudget;
+            }, 0))
+            console.log(cartSubtotal)
         })
-            .then((resp) => resp.json())
-            .then((data) => {
-                console.log(data)
-                setProduct(data)
-            })
-            .catch((err) => console.log(err))
+        .catch((err) => console.log(err))
     },[])
 
     function changeProductAmount(id, product) {
 
         product.productAmount = product.productAmount + 1
         product.cartAmount = product.cartAmount - 1
+        product.totalBudget = product.budget * product.cartAmount
 
         fetch(`http://localhost:5000/products/${id}`, {
         method: 'PUT',
@@ -107,10 +113,12 @@ export function Cart({ cartAmount }:cartProps) {
         }
 
     }
+
+    console.log(cartSubtotal)
         
     return (
         <div className="max-w-screen-2xl mx-auto flex justify-around">
-            <div className="w-3/4 flex flex-col items-center">
+            <div className="mt-10 w-3/4 flex flex-col items-center">
 
                 {product.length > 6 && (
                     <Pagination
@@ -130,7 +138,7 @@ export function Cart({ cartAmount }:cartProps) {
                             key={product.id}
                             alt={product.name}
                             title={product.name}
-                            budget={product.budget}
+                            totalBudget={product.totalBudget}
                             cartAmount={product.cartAmount}
                             productData={product}
                             changeProductAmount={changeProductAmount}
@@ -148,7 +156,7 @@ export function Cart({ cartAmount }:cartProps) {
             <div className="w-68 flex flex-col justify-between mt-20 border border-zinc-300 rounded-xl max-h-72 p-5">
                 <div>
                     <p className="mb-5 font-bold text-xl text-zinc-500">{cartAmount} produto(s) no carrinho</p>
-                    <p className="mb-5 font-bold text-xl text-zinc-500">Subtotal: {cartBudget}</p>
+                    <p className="mb-5 font-bold text-xl text-zinc-500">Subtotal: {cartSubtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
                 </div>
                 <FormButton
                 text="Finalizar compra"

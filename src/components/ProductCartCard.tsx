@@ -8,7 +8,7 @@ interface ProductCartCardProps {
     image: any
     alt: string
     title: string
-    budget: number
+    totalBudget: number
     cartAmount: number
     handleRemove: any
     productData: any
@@ -16,7 +16,7 @@ interface ProductCartCardProps {
     changeCartAmount: any
 }
 
-export function ProductCartCard({ id, image, alt, title, budget, cartAmount, handleRemove, productData, changeProductAmount, changeCartAmount }:ProductCartCardProps) {
+export function ProductCartCard({ id, image, alt, title, totalBudget, cartAmount, handleRemove, productData, changeProductAmount, changeCartAmount }:ProductCartCardProps) {
 
     const [product, setProduct] = useState(productData || {})
 
@@ -36,7 +36,7 @@ export function ProductCartCard({ id, image, alt, title, budget, cartAmount, han
         <form className="flex flex-col bg-white h-96 w-64 mx-7 mb-14 rounded-md shadow-lg shadow-zinc-300">
             <div className='w-full flex justify-end'>
                 <button onClick={handleOnClick} className='h-10 p-2'>
-                    <BsFillTrashFill className='text-orange-500 flex justify-end text-2xl'/>
+                    <BsFillTrashFill className='text-orange-500 flex justify-end text-2xl mr-2 mt-2'/>
                 </button>
             </div>
             <div className="h-48 flex items-center justify-center">
@@ -44,7 +44,7 @@ export function ProductCartCard({ id, image, alt, title, budget, cartAmount, han
             </div>
             <div className="flex flex-col mx-5">
                 <p className="mb-2 h-12">{title}</p>
-                <p className="mb-2 font-bold text-lg text-zinc-500 flex justify-start">{(budget * cartAmount).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+                <p className="mb-2 font-bold text-lg text-zinc-500 flex justify-start">{(totalBudget).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
                 <p className="mb-2 text-sm text-zinc-500 flex justify-end">No carrinho: {cartAmount}</p>
             </div>
         </form>

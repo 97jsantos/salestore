@@ -79,6 +79,7 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
 
         product.productAmount = product.productAmount - 1
         product.cartAmount = product.cartAmount + 1
+        product.totalBudget = product.budget * product.cartAmount
 
         fetch(`http://localhost:5000/products/${id}`, {
         method: 'PUT',
