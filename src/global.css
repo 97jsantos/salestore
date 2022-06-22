@@ -10,7 +10,7 @@ div > .active {
     opacity: 1;
 }
 
-nav > .active {
+ul > .active {
     color:rgb(249, 115, 22);
     border-bottom: 1px solid rgb(249, 115, 22);
 }

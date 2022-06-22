@@ -1,7 +1,11 @@
 module.exports = {
   content: ["./src/**/*.tsx"],
   theme: {
-    extend: {},
+    extend: {
+      transitionDuration: {
+        '0': '0ms',
+      }
+    },
   },
   plugins: [],
 }

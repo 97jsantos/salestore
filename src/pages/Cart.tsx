@@ -117,8 +117,8 @@ export function Cart({ cartAmount }:cartProps) {
     console.log(cartSubtotal)
         
     return (
-        <div className="max-w-screen-2xl mx-auto flex justify-around">
-            <div className="mt-10 w-3/4 flex flex-col items-center">
+        <div className="min-h-screen max-w-screen-2xl mx-auto flex justify-around md:items-start items-center md:flex-row flex-col">
+            <div className="xl:mt-9 lg:mt-11 sm:mt-5 mt-3 md:w-3/4 w-full flex flex-col items-center">
 
                 {product.length > 6 && (
                     <Pagination
@@ -129,7 +129,7 @@ export function Cart({ cartAmount }:cartProps) {
                     />
                 )}
 
-                <div className="min-h-screen max-w-7xl flex justify-center flex-wrap mt-20">
+                <div className="max-w-7xl flex justify-center flex-wrap xl:mt-20 lg:mt-14 md:mt-10 mt-5">
                 {product.length > 0 ? (
                     currentProduct.map((product: any) => (
                         <ProductCartCard
@@ -153,10 +153,10 @@ export function Cart({ cartAmount }:cartProps) {
                 </div>
                 
             </div>
-            <div className="w-68 flex flex-col justify-between mt-20 border border-zinc-300 rounded-xl max-h-72 p-5">
+            <div className="md:w-72 sm:w-96 flex flex-col justify-between xl:mt-36 lg:mt-32 md:mt-20 mt-5 mb-10 border border-zinc-300 rounded-xl max-h-72 p-5 mr-4">
                 <div>
-                    <p className="mb-5 font-bold text-xl text-zinc-500">{cartAmount} produto(s) no carrinho</p>
-                    <p className="mb-5 font-bold text-xl text-zinc-500">Subtotal: {cartSubtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+                    <p className="mb-5 font-bold md:text-xl text-zinc-500">{cartAmount} produto(s) no carrinho</p>
+                    <p className="mb-5 font-bold md:text-xl text-zinc-500">Subtotal: {cartSubtotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
                 </div>
                 <FormButton
                 text="Finalizar compra"

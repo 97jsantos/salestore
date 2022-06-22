@@ -80,7 +80,7 @@ export function NewProductForm({ handleSubmit, productData }:NewProductFormProps
 
     return (
         <div className="min-h-screen flex justify-center">
-            <div className="flex w-1/4 justify-center">
+            <div className="flex justify-center">
                 <form onSubmit={submit} className="w-full flex flex-col items-center">
                     <p className="text-2xl font-bold text-zinc-600 text-center m-10 w-full">Registrar Produto</p>
 

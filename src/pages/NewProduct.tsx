@@ -22,7 +22,7 @@ export function NewProduct() {
     }
 
     return (
-        <div className=''>
+        <div>
             <NewProductForm productData={[]} handleSubmit={createPost} />
         </div>
     )

@@ -122,7 +122,7 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
                 key={currentPage}
                 />
             )}
-            <div className="min-h-screen max-w-7xl flex justify-center flex-wrap mt-20">
+            <div className="min-h-screen max-w-7xl flex justify-center flex-wrap xl:mt-20 lg:mt-14 md:mt-10 mt-5">
             {product.length > 0 ? (
                 currentProduct.map((product: any) => (
                     <ProductCard

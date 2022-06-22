@@ -16,7 +16,6 @@ import { FooterDivider } from "./layout/FooterDivider"
 import { NewProduct } from "./pages/NewProduct"
 
 import { useAppSelector } from './store/Hooks'
-import { useState } from "react"
 
 export function App() {
 

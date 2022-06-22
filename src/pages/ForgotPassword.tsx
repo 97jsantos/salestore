@@ -12,7 +12,7 @@ export function ForgotPassword() {
 
     return (
         <div className="min-h-screen flex justify-center">
-            <div className="flex w-1/4 justify-center">
+            <div className="flex justify-center">
                 <form onSubmit={handleSubmitForgotPassword} className="w-full flex flex-col items-center mb-12">
                     <p className="text-2xl font-bold text-zinc-600 text-center m-10 w-full">Esqueci minha senha</p>
                     <FormInput
