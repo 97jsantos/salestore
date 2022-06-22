@@ -28,7 +28,7 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
 
     useEffect(() => {
         
-        fetch(`http://localhost:5000/products/`, {
+        fetch(`https://salestore-97jsantos.herokuapp.com/products/`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
     }, [])
 
     function removeProduct(id) {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://salestore-97jsantos.herokuapp.com/products/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -59,7 +59,7 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
 
         {product.total === product.productAmount && 
 
-        fetch(`http://localhost:5000/carrinho`, {
+        fetch(`https://salestore-97jsantos.herokuapp.com/carrinho`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -81,7 +81,7 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
         product.cartAmount = product.cartAmount + 1
         product.totalBudget = product.budget * product.cartAmount
 
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://salestore-97jsantos.herokuapp.com/products/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -98,7 +98,7 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
 
     function changeCartAmount(id, product) {
 
-        fetch(`http://localhost:5000/carrinho/${id}`, {
+        fetch(`https://salestore-97jsantos.herokuapp.com/carrinho/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

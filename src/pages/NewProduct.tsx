@@ -6,7 +6,7 @@ export function NewProduct() {
 
     function createPost(product) {
 
-        fetch(`http://localhost:5000/products`, {
+        fetch(`https://salestore-97jsantos.herokuapp.com/products`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
