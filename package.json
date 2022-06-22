@@ -7,7 +7,8 @@
     "dev": "vite",
     "backend": "json-server --watch db.json --port 5000",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "heroku-postbuild": "npm run build"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.2",
@@ -25,6 +26,7 @@
     "react-router-dom": "^6.3.0",
     "redux": "^4.2.0",
     "redux-persist": "^6.0.0",
+    "serve": "^13.0.2",
     "uuid": "^8.3.2"
   },
   "devDependencies": {

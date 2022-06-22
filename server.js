@@ -1,19 +1,15 @@
-const express = require('express')
-const { resolve } = require('path')
-const app = express()
-
-app.use('/',
-    express.static(
-        resolve(
-            __dirname,
-            './build'
-        )
-    )
- )
-
-app
-    .listen(process.env.PORT || 5000, (err) => {
-        if (err) { return console.log(err) }
-
-        console.log('Server is running!')
-    })
+const jsonServer = require('json-server');
+const server = jsonServer.create();
+const router = jsonServer.router('./db.json');
+const middlewares = jsonServer.defaults({
+  static: './build'
+});
+const PORT = process.env.PORT || 5000;
+server.use(middlewares);
+server.use(jsonServer.rewriter({
+  '/api/*': '/$1',
+}))
+server.use(router);
+server.listen(PORT, () => {
+  console.log('Server is running');
+});
