@@ -4,29 +4,27 @@
       "name": "Sofá",
       "budget": 729.99,
       "total": 2,
-      "productAmount": 0,
-      "cartAmount": 2,
+      "productAmount": 2,
+      "cartAmount": 0,
       "category": {
         "id": 1,
         "name": "Casa",
         "url": "casa"
       },
-      "id": 1,
-      "totalBudget": 1459.98
+      "id": 1
     },
     {
       "name": "Quadro",
       "budget": 139.99,
       "total": 4,
-      "productAmount": 3,
-      "cartAmount": 1,
+      "productAmount": 4,
+      "cartAmount": 0,
       "category": {
         "id": 2,
         "name": "Decoracão",
         "url": "decoracao"
       },
-      "id": 2,
-      "totalBudget": 139.99
+      "id": 2
     },
     {
       "name": "Celular",
@@ -58,43 +56,40 @@
       "name": "Computador",
       "budget": 4459.99,
       "total": 1,
-      "productAmount": 0,
-      "cartAmount": 1,
+      "productAmount": 1,
+      "cartAmount": 0,
       "category": {
         "id": 5,
         "name": "Informática",
         "url": "informatica"
       },
-      "id": 5,
-      "totalBudget": 4459.99
+      "id": 5
     },
     {
       "name": "Bóia",
       "budget": 89.99000000000001,
       "total": 5,
-      "productAmount": 2,
-      "cartAmount": 3,
+      "productAmount": 5,
+      "cartAmount": 0,
       "category": {
         "id": 6,
         "name": "Lazer",
         "url": "lazer"
       },
-      "id": 6,
-      "totalBudget": 269.97
+      "id": 6
     },
     {
       "name": "Celular 2",
       "budget": 1239.99,
       "total": 2,
-      "productAmount": 1,
-      "cartAmount": 1,
+      "productAmount": 2,
+      "cartAmount": 0,
       "category": {
         "id": 3,
         "name": "Eletrônicos",
         "url": "eletronicos"
       },
-      "id": 7,
-      "totalBudget": 1239.99
+      "id": 7
     },
     {
       "name": "Sofá 2",
@@ -188,106 +183,7 @@
       "id": 14
     }
   ],
-  "carrinho": [
-    {
-      "name": "Sofá",
-      "budget": 729.99,
-      "total": 2,
-      "productAmount": 0,
-      "cartAmount": 2,
-      "category": {
-        "id": 1,
-        "name": "Casa",
-        "url": "casa"
-      },
-      "id": 1,
-      "totalBudget": 1459.98
-    },
-    {
-      "name": "Bóia",
-      "budget": 89.99000000000001,
-      "total": 5,
-      "productAmount": 2,
-      "cartAmount": 3,
-      "category": {
-        "id": 6,
-        "name": "Lazer",
-        "url": "lazer"
-      },
-      "id": 6,
-      "totalBudget": 269.97
-    },
-    {
-      "name": "Celular",
-      "budget": 1199.99,
-      "total": 2,
-      "productAmount": 1,
-      "cartAmount": 1,
-      "category": {
-        "id": 3,
-        "name": "Eletrônicos",
-        "url": "eletronicos"
-      },
-      "id": 3,
-      "totalBudget": 1199.99
-    },
-    {
-      "name": "Camisa",
-      "budget": 449.99,
-      "total": 3,
-      "productAmount": 2,
-      "cartAmount": 1,
-      "category": {
-        "id": 4,
-        "name": "Esportes",
-        "url": "esportes"
-      },
-      "id": 4,
-      "totalBudget": 449.99
-    },
-    {
-      "name": "Quadro",
-      "budget": 139.99,
-      "total": 4,
-      "productAmount": 3,
-      "cartAmount": 1,
-      "category": {
-        "id": 2,
-        "name": "Decoracão",
-        "url": "decoracao"
-      },
-      "id": 2,
-      "totalBudget": 139.99
-    },
-    {
-      "name": "Computador",
-      "budget": 4459.99,
-      "total": 1,
-      "productAmount": 0,
-      "cartAmount": 1,
-      "category": {
-        "id": 5,
-        "name": "Informática",
-        "url": "informatica"
-      },
-      "id": 5,
-      "totalBudget": 4459.99
-    },
-    {
-      "name": "Celular 2",
-      "budget": 1239.99,
-      "total": 2,
-      "productAmount": 1,
-      "cartAmount": 1,
-      "category": {
-        "id": 3,
-        "name": "Eletrônicos",
-        "url": "eletronicos"
-      },
-      "id": 7,
-      "totalBudget": 1239.99
-    }
-  ],
+  "carrinho": [],
   "categories": [
     {
       "id": 1,

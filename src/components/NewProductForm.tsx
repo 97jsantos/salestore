@@ -19,7 +19,7 @@ export function NewProductForm({ handleSubmit, productData }:NewProductFormProps
     const [product, setProduct] = useState(productData || {})
 
     useEffect(() => {
-        fetch("https://salestore-97jsantos.herokuapp.com/categories", {
+        fetch("http://localhost:5000/categories", {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ export function NewProductForm({ handleSubmit, productData }:NewProductFormProps
     }, [])
 
     useEffect(() => {
-        fetch("https://salestore-97jsantos.herokuapp.com/amount", {
+        fetch("http://localhost:5000/amount", {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'

@@ -39,7 +39,7 @@ export function Cart({ cartAmount }:cartProps) {
 
     useEffect(() => {
 
-        fetch('https://salestore-97jsantos.herokuapp.com/carrinho', {
+        fetch('http://localhost:5000/carrinho', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -64,7 +64,7 @@ export function Cart({ cartAmount }:cartProps) {
         product.cartAmount = product.cartAmount - 1
         product.totalBudget = product.budget * product.cartAmount
 
-        fetch(`https://salestore-97jsantos.herokuapp.com/products/${id}`, {
+        fetch(`http://localhost:5000/products/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -81,7 +81,7 @@ export function Cart({ cartAmount }:cartProps) {
 
     function changeCartAmount(id, product) {
 
-        fetch(`https://salestore-97jsantos.herokuapp.com/carrinho/${id}`, {
+        fetch(`http://localhost:5000/carrinho/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -99,7 +99,7 @@ export function Cart({ cartAmount }:cartProps) {
 
         {product.cartAmount === 1 &&
 
-        fetch(`https://salestore-97jsantos.herokuapp.com/carrinho/${id}`, {
+        fetch(`http://localhost:5000/carrinho/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
