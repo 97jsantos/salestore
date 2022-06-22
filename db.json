@@ -53,6 +53,19 @@
       "id": 4
     },
     {
+      "name": "Computador",
+      "budget": 4459.99,
+      "total": 1,
+      "productAmount": 1,
+      "cartAmount": 0,
+      "category": {
+        "id": 5,
+        "name": "Informática",
+        "url": "informatica"
+      },
+      "id": 5
+    },
+    {
       "name": "Bóia",
       "budget": 89.99000000000001,
       "total": 5,
@@ -155,6 +168,19 @@
         "url": "casa"
       },
       "id": 13
+    },
+    {
+      "name": "Celular 3",
+      "budget": 1249.99,
+      "total": 3,
+      "productAmount": 3,
+      "cartAmount": 0,
+      "category": {
+        "id": 3,
+        "name": "Eletrônicos",
+        "url": "eletronicos"
+      },
+      "id": 14
     }
   ],
   "carrinho": [],
