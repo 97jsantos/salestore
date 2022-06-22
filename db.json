@@ -30,8 +30,8 @@
       "name": "Celular",
       "budget": 1199.99,
       "total": 2,
-      "productAmount": 1,
-      "cartAmount": 1,
+      "productAmount": 2,
+      "cartAmount": 0,
       "category": {
         "id": 3,
         "name": "Eletrônicos",
@@ -43,27 +43,14 @@
       "name": "Camisa",
       "budget": 449.99,
       "total": 3,
-      "productAmount": 2,
-      "cartAmount": 1,
+      "productAmount": 3,
+      "cartAmount": 0,
       "category": {
         "id": 4,
         "name": "Esportes",
         "url": "esportes"
       },
       "id": 4
-    },
-    {
-      "name": "Computador",
-      "budget": 4459.99,
-      "total": 1,
-      "productAmount": 1,
-      "cartAmount": 0,
-      "category": {
-        "id": 5,
-        "name": "Informática",
-        "url": "informatica"
-      },
-      "id": 5
     },
     {
       "name": "Bóia",
@@ -168,19 +155,6 @@
         "url": "casa"
       },
       "id": 13
-    },
-    {
-      "name": "Camisa 3",
-      "budget": 469.99,
-      "total": 2,
-      "productAmount": 2,
-      "cartAmount": 0,
-      "category": {
-        "id": 4,
-        "name": "Esportes",
-        "url": "esportes"
-      },
-      "id": 14
     }
   ],
   "carrinho": [],
