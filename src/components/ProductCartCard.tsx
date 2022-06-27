@@ -25,7 +25,6 @@ export function ProductCartCard({ id, image, alt, title, totalBudget, cartAmount
     function handleOnClick(event) {
         event.preventDefault()
         handleRemove(id, product)
-        dispatch(decremented())
         changeProductAmount(id, product)
         changeCartAmount(id, product)
         setProduct
