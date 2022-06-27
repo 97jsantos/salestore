@@ -57,43 +57,49 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
 
     function addProduct(product) {
 
-        {product.total === product.productAmount && 
+        if (product.total === product.productAmount) { 
 
-        fetch(`https://salestore-97jsantos.herokuapp.com/carrinho`, {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json',
-            },
-            body: JSON.stringify(product),
-        })
-            .then((resp) => resp.json())
-            .then((data) => {
-                console.log(data)
+            product.productAmount = product.productAmount - 1
+            product.cartAmount = product.cartAmount + 1
+            product.totalBudget = product.budget * product.cartAmount
+
+            fetch(`https://salestore-97jsantos.herokuapp.com/carrinho`, {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                },
+                body: JSON.stringify(product),
             })
-            .catch((err) => console.log(err))
+                .then((resp) => resp.json())
+                .then((data) => {
+                    console.log(data)
+                })
+                .catch((err) => console.log(err))
         }
-
     }
 
     function changeProductAmount(id, product) {
 
-        product.productAmount = product.productAmount - 1
-        product.cartAmount = product.cartAmount + 1
-        product.totalBudget = product.budget * product.cartAmount
+        if (product.total !== product.productAmount) {
 
-        fetch(`https://salestore-97jsantos.herokuapp.com/products/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(product),
-    })
-        .then((resp) => resp.json())
-        .then((data) => {
-            console.log(data)
-            navigate(`/carrinho`)
-        })
-        .catch((err) => console.log(err))
+            product.productAmount = product.productAmount - 1
+            product.cartAmount = product.cartAmount + 1
+            product.totalBudget = product.budget * product.cartAmount
+
+            fetch(`https://salestore-97jsantos.herokuapp.com/products/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(product),
+            })
+                .then((resp) => resp.json())
+                .then((data) => {
+                    console.log(data)
+                    navigate(`/carrinho`)
+                })
+                .catch((err) => console.log(err))
+        }
     }
 
     function changeCartAmount(id, product) {
