@@ -30,7 +30,7 @@ export function AllTheProducts() {
 
     useEffect(() => {
 
-            fetch('http://localhost:5000/products', {
+            fetch('https://salestore-97jsantos.netlify.app/products', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',

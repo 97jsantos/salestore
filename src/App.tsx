@@ -17,6 +17,8 @@ import { NewProduct } from "./pages/NewProduct"
 
 import { useAppSelector } from './store/Hooks'
 
+import 'vite/modulepreload-polyfill'
+
 export function App() {
 
   const count = useAppSelector((state) => state.counter.value)
