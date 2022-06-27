@@ -97,7 +97,7 @@ export function Cart({ cartAmount }:cartProps) {
 
     function removeProject(id, product) {
 
-        {product.cartAmount === 1 &&
+        {product.cartAmount <= 1 &&
 
         fetch(`https://salestore-97jsantos.herokuapp.com/carrinho/${id}`, {
             method: 'DELETE',
