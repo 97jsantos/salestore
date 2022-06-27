@@ -45,7 +45,7 @@ export function ProductCartCard({ id, image, alt, title, totalBudget, cartAmount
             </div>
             <div className="flex flex-col mx-5">
                 <p className="mb-2 lg:h-12">{title}</p>
-                <p className="mb-2 font-bold text-lg text-zinc-500 flex justify-start">{(totalBudget).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+                <p className="mb-2 font-bold text-lg text-zinc-500 flex justify-start">{totalBudget.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
                 <p className="mb-2 text-sm text-zinc-500 flex justify-end">No carrinho: {cartAmount}</p>
             </div>
         </form>
