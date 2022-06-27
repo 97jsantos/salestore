@@ -30,7 +30,7 @@ export function AllTheProducts() {
 
     useEffect(() => {
 
-            fetch('https://salestore-97jsantos.netlify.app/products', {
+            fetch('https://salestore-97jsantos.herokuapp.com/products', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ export function AllTheProducts() {
     },[])
 
     function removeProduct(id) {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://salestore-97jsantos.herokuapp.com/products/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ export function AllTheProducts() {
 
         {product.total === product.productAmount && 
 
-        fetch(`http://localhost:5000/carrinho`, {
+        fetch(`https://salestore-97jsantos.herokuapp.com/carrinho`, {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -83,7 +83,7 @@ export function AllTheProducts() {
         product.productAmount = product.productAmount - 1
         product.cartAmount = product.cartAmount + 1
 
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://salestore-97jsantos.herokuapp.com/products/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -100,7 +100,7 @@ export function AllTheProducts() {
 
     function changeCartAmount(id, product) {
 
-        fetch(`http://localhost:5000/carrinho/${id}`, {
+        fetch(`https://salestore-97jsantos.herokuapp.com/carrinho/${id}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
