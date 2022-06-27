@@ -63,7 +63,8 @@ export function NewProductForm({ handleSubmit, productData }:NewProductFormProps
         setProduct({...product,
             total: event.target.options[event.target.selectedIndex].index,
             productAmount: event.target.options[event.target.selectedIndex].index,
-            cartAmount: 0
+            cartAmount: 0,
+            totalBudget: 0
         })
     }
 

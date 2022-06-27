@@ -138,7 +138,7 @@ export function Cart({ cartAmount }:cartProps) {
                             key={product.id}
                             alt={product.name}
                             title={product.name}
-                            totalBudget={product.budget}
+                            totalBudget={product.totalBudget}
                             cartAmount={product.cartAmount}
                             productData={product}
                             changeProductAmount={changeProductAmount}
