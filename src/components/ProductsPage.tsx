@@ -28,7 +28,7 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
 
     useEffect(() => {
         
-        fetch(`https://salestore-97jsantos.herokuapp.com/products/`, {
+        fetch(`http://localhost:5000/products/`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
     }, [])
 
     function removeProduct(id) {
-        fetch(`https://salestore-97jsantos.herokuapp.com/products/${id}`, {
+        fetch(`http://localhost:5000/products/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
