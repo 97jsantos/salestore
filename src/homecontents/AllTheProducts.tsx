@@ -98,7 +98,7 @@ export function AllTheProducts() {
                         id={product.id}
                         alt={product.id}
                         title={product.name}
-                        productBudget={product.productBudget}
+                        productBudget={product.budget}
                         productAmount={product.productAmount}
                         cartAmount={product.cartAmount}
                         key={product.id}

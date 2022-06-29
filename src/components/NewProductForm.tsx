@@ -109,7 +109,7 @@ export function NewProductForm({ handleSubmit, productData }:NewProductFormProps
                     mandatory={true}
                     title='Preço do produto (unidade):'
                     type='number'
-                    name='productBudget'
+                    name='budget'
                     placeholder='Digite o preço do produto'
                     handleOnChange={handleBudget}
                     value={product.productBudget ? product.productBudget.value : ''} />
