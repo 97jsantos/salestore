@@ -63,7 +63,7 @@ export function Cart() {
 
         product.productAmount = product.productAmount + 1
         product.cartAmount = product.cartAmount - 1
-        product.cartBudget = product.productBudget * product.cartAmount
+        product.cartBudget = product.budget * product.cartAmount
 
         fetch(`https://salestore-97jsantos.herokuapp.com/products/${id}`, {
         method: 'PATCH',
