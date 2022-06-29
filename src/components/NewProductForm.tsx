@@ -112,7 +112,7 @@ export function NewProductForm({ handleSubmit, productData }:NewProductFormProps
                     name='budget'
                     placeholder='Digite o preço do produto'
                     handleOnChange={handleBudget}
-                    value={product.productBudget ? product.productBudget.value : ''} />
+                    value={product.budget ? product.budget.value : ''} />
 
                     <NewProductSelect 
                     mandatory={true}
