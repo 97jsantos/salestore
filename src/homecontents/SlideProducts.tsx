@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
+
 import propaganda01 from '../images/propaganda01.png'
 import propaganda02 from '../images/propaganda02.png'
 import propaganda03 from '../images/propaganda03.png'
 import propaganda04 from '../images/propaganda04.png'
 import propaganda05 from '../images/propaganda05.png'
 import propaganda06 from '../images/propaganda06.png'
+
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 
 const featuredProducts = [

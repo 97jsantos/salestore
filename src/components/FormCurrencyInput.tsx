@@ -1,20 +1,20 @@
 import CurrencyInput from 'react-currency-masked-input'
 
 interface FormCurrencyInputProps{
-    name?: string
-    mandatory?: string
+    name: string
+    mandatory: boolean
     title: string
     type: string
-    placeholder?: string
+    placeholder: string
     handleOnChange: any
-    value?: any
+    value: any
 }
 
 export function FormCurrencyInput({ name, mandatory, title, type, placeholder, handleOnChange, value}:FormCurrencyInputProps) {
     return (
         <div className="w-full">
             <div className="w-full mb-1">
-                <label htmlFor={name} className='mr-1 text-orange-500 font-extrabold'>{mandatory}</label>{title}
+                <label htmlFor={name} className='mr-1 text-orange-500 font-extrabold'>{mandatory ? true && '*' : ''}</label>{title}
             </div>
                 <CurrencyInput 
                 type={type}

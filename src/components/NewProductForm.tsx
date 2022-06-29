@@ -1,10 +1,10 @@
 import { FormEvent, useEffect, useState } from "react"
+
 import { FormInput } from "../components/FormInput"
 import { FormCurrencyInput } from "./FormCurrencyInput"
 import { NewProductButton } from "./NewProductButton"
 import { NewProductImage } from "./NewProductImage"
 import { NewProductSelect } from "./NewProductSelect"
-
 interface NewProductFormProps {
     handleSubmit: any
     productData: any
@@ -56,15 +56,16 @@ export function NewProductForm({ handleSubmit, productData }:NewProductFormProps
     }
 
     function handleBudget(event) {
-        setProduct({...product, [event.target.name]:Number(event.target.value) * 10})
+        setProduct({...product, 
+            [event.target.name]:Number(event.target.value) * 10,
+            cartBudget: 0
+        })
     }
 
     function handleAmount(event) {
         setProduct({...product,
-            total: event.target.options[event.target.selectedIndex].index,
             productAmount: event.target.options[event.target.selectedIndex].index,
             cartAmount: 0,
-            totalBudget: 0
         })
     }
 
@@ -86,6 +87,8 @@ export function NewProductForm({ handleSubmit, productData }:NewProductFormProps
                     <p className="text-2xl font-bold text-zinc-600 text-center m-10 w-full">Registrar Produto</p>
 
                     <NewProductImage
+                    mandatory={false}
+                    mask={''}
                     title='Imagem do produto:'
                     type='file'
                     name='file'
@@ -94,7 +97,7 @@ export function NewProductForm({ handleSubmit, productData }:NewProductFormProps
                     value={product.file ? product.file : ''} />
 
                     <FormInput
-                    mandatory='*'
+                    mandatory={true}
                     title='Nome do produto:'
                     type='text'
                     name='name'
@@ -103,16 +106,16 @@ export function NewProductForm({ handleSubmit, productData }:NewProductFormProps
                     value={product.name ? product.name : ''} />
 
                     <FormCurrencyInput
-                    mandatory='*'
+                    mandatory={true}
                     title='Preço do produto (unidade):'
                     type='number'
-                    name='budget'
+                    name='productBudget'
                     placeholder='Digite o preço do produto'
                     handleOnChange={handleBudget}
-                    value={product.budget ? product.budget.value : ''} />
+                    value={product.productBudget ? product.productBudget.value : ''} />
 
                     <NewProductSelect 
-                    mandatory='*'
+                    mandatory={true}
                     title='Quantidade:'
                     name='amount'
                     options={amount}
@@ -122,7 +125,7 @@ export function NewProductForm({ handleSubmit, productData }:NewProductFormProps
                 
 
                     <NewProductSelect
-                    mandatory='*'
+                    mandatory={true}
                     title='Categoria do produto:'
                     name='category_id'
                     options={categories}

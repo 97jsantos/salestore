@@ -1,5 +1,5 @@
 interface NewProductSelectProps {
-    mandatory: string
+    mandatory: boolean
     title: string
     name: string
     options: any
@@ -12,7 +12,7 @@ export function NewProductSelect({ mandatory, title, name, options, handleOnChan
     return (
         <div className="w-full">
             <div className="w-full mb-1">
-                <label htmlFor={name} className='mr-1 text-orange-500 font-extrabold'>{mandatory}</label>{title}
+                <label htmlFor={name} className='mr-1 text-orange-500 font-extrabold'>{mandatory ? true && '*' : ''}</label>{title}
             </div>
             <select name={name} id={name} onChange={handleOnChange} value={value} required className='h-10 border border-zinc-300 outline-none w-full rounded-md mb-7 px-4'>
                 <option value="">{selectName}</option>

@@ -38,7 +38,7 @@ export function App() {
         <Route path="/esqueciminhasenha" element={<ForgotPassword />} />
         <Route path="/registrar" element={<Register />} />
         <Route path="/novoproduto" element={<NewProduct />} />
-        <Route path="/carrinho" element={<Cart cartAmount={count} />} />
+        <Route path="/carrinho" element={<Cart />} />
       </Routes>
       <FooterDivider />
       <Footer />

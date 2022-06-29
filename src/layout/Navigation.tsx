@@ -1,13 +1,14 @@
 import { useState } from 'react'
-import { GiShoppingCart } from 'react-icons/gi'
-import { MdSearch, MdMenu } from 'react-icons/md'
+import { NavLink } from 'react-router-dom'
+
 import { GoTo } from '../components/GoTo'
 
-import { NavLink } from 'react-router-dom'
+import { GiShoppingCart } from 'react-icons/gi'
+import { MdSearch, MdMenu } from 'react-icons/md'
 
 export function Navigation({ count }) {
 
-    const [isNavExpanded, setIsNavExpanded] = useState(true)
+    const [isNavExpanded, setIsNavExpanded] = useState(false)
     
     return (
         <>
@@ -46,9 +47,9 @@ export function Navigation({ count }) {
                     setIsNavExpanded(!isNavExpanded);
                   }}><MdMenu className='text-3xl text-zinc-700'/></button>
                 <div className="mx-auto md:h-10 md:flex md:flex-row md:items-center md:justify-center flex-col">
-                    <ul className={
-                    isNavExpanded ? "flex flex-col absolute bg-white z-10 w-72 left-0 top-10 border-t md:flex-row md:border-0 md:justify-center md:top-auto md:w-full duration-500 md:duration-0" : "flex flex-col absolute bg-white z-10 w-72 -left-72 top-10 border-t md:left-0 md:flex-row md:border-0 md:justify-center md:top-auto md:w-full duration-500 md:duration-0"
-                    }>
+                    <ul className={`flex flex-col absolute bg-white z-10 w-72 top-10 border-t md:left-auto md:flex-row md:border-0 md:justify-center md:top-auto md:w-full duration-500 md:duration-0 ${
+                    isNavExpanded ? "left-0" : "-left-72"
+                    }`}>
                         <NavLink to="/casa" onClick={GoTo} className="hover:text-orange-500 outline-orange-500 my-2 mx-auto md:my-0 md:mx-7 ">Casa</NavLink>
                         <NavLink to="/decoracao" onClick={GoTo} className="hover:text-orange-500 outline-orange-500 my-2 mx-auto md:my-0 md:mx-7 ">Decoração</NavLink>
                         <NavLink to="/eletronicos" onClick={GoTo} className="hover:text-orange-500 outline-orange-500 my-2 mx-auto md:my-0 md:mx-7 ">Eletrônicos</NavLink>

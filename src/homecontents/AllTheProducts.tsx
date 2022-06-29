@@ -58,12 +58,14 @@ export function AllTheProducts() {
         .catch((err) => console.log(err))
     }
 
-    function addProduct(product) {
+    function addProduct(id, product) {
 
-        {product.total === product.productAmount && 
+        product.productAmount = product.productAmount - 1
+        product.cartAmount = product.cartAmount + 1
+        product.cartBudget = product.productBudget * product.cartAmount
 
-        fetch(`http://localhost:5000/carrinho`, {
-            method: 'POST',
+        fetch(`http://localhost:5000/products/${id}`, {
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json',
             },
@@ -72,46 +74,9 @@ export function AllTheProducts() {
             .then((resp) => resp.json())
             .then((data) => {
                 console.log(data)
+                navigate("/carrinho")
             })
             .catch((err) => console.log(err))
-        }
-
-    }
-
-    function changeProductAmount(id, product) {
-
-        product.productAmount = product.productAmount - 1
-        product.cartAmount = product.cartAmount + 1
-
-        fetch(`http://localhost:5000/products/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(product),
-    })
-        .then((resp) => resp.json())
-        .then((data) => {
-            console.log(data)
-            navigate(`/carrinho`)
-        })
-        .catch((err) => console.log(err))
-    }
-
-    function changeCartAmount(id, product) {
-
-        fetch(`http://localhost:5000/carrinho/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(product),
-    })
-        .then((resp) => resp.json())
-        .then((data) => {
-            console.log(data)
-        })
-        .catch((err) => console.log(err))
     }
         
     return (
@@ -133,14 +98,13 @@ export function AllTheProducts() {
                         id={product.id}
                         alt={product.id}
                         title={product.name}
-                        budget={product.budget}
+                        productBudget={product.productBudget}
                         productAmount={product.productAmount}
+                        cartAmount={product.cartAmount}
                         key={product.id}
                         productData={product}
                         handleRemove={removeProduct}
                         addProduct={addProduct}
-                        changeProductAmount={changeProductAmount}
-                        changeCartAmount={changeCartAmount}
                         handleDisabled={product.productAmount === 0}
                     />
             ))): (

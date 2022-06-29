@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+
 import { Pagination } from "../components/Pagination"
 import { ProductCard } from "../components/ProductCard"
-
 interface ProductsPageProps {
     image: any
     getFilter: string
@@ -55,67 +55,25 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
         .catch((err) => console.log(err))
     }
 
-    function addProduct(product) {
+    function addProduct(id, product) {
 
-        if (product.total === product.productAmount) { 
+        product.productAmount = product.productAmount - 1
+        product.cartAmount = product.cartAmount + 1
+        product.cartBudget = product.productBudget * product.cartAmount
 
-            product.productAmount = product.productAmount - 1
-            product.cartAmount = product.cartAmount + 1
-            product.totalBudget = product.budget * product.cartAmount
-
-            fetch(`http://localhost:5000/carrinho`, {
-                method: 'POST',
-                headers: {
-                    'content-type': 'application/json',
-                },
-                body: JSON.stringify(product),
-            })
-                .then((resp) => resp.json())
-                .then((data) => {
-                    console.log(data)
-                })
-                .catch((err) => console.log(err))
-        }
-    }
-
-    function changeProductAmount(id, product) {
-
-        if (product.total !== product.productAmount) {
-
-            product.productAmount = product.productAmount - 1
-            product.cartAmount = product.cartAmount + 1
-            product.totalBudget = product.budget * product.cartAmount
-
-            fetch(`http://localhost:5000/products/${id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(product),
-            })
-                .then((resp) => resp.json())
-                .then((data) => {
-                    console.log(data)
-                    navigate(`/carrinho`)
-                })
-                .catch((err) => console.log(err))
-        }
-    }
-
-    function changeCartAmount(id, product) {
-
-        fetch(`http://localhost:5000/carrinho/${id}`, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(product),
-    })
-        .then((resp) => resp.json())
-        .then((data) => {
-            console.log(data)
+        fetch(`http://localhost:5000/products/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json',
+            },
+            body: JSON.stringify(product),
         })
-        .catch((err) => console.log(err))
+            .then((resp) => resp.json())
+            .then((data) => {
+                console.log(data)
+                navigate(`/${product.category.url}`)
+            })
+            .catch((err) => console.log(err))
     }
         
     return (
@@ -136,14 +94,13 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
                         id={product.id}
                         alt={product.id}
                         title={product.name}
-                        budget={product.budget}
+                        productBudget={product.productBudget}
                         productAmount={product.productAmount}
+                        cartAmount={product.cartAmount}
                         key={product.id}
                         productData={product}
                         handleRemove={removeProduct}
                         addProduct={addProduct}
-                        changeProductAmount={changeProductAmount}
-                        changeCartAmount={changeCartAmount}
                         handleDisabled={product.productAmount === 0}
                     />
             ))) : ( 

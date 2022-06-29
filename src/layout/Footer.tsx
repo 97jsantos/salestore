@@ -1,7 +1,8 @@
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
+import { NavLink } from 'react-router-dom'
+
 import { GoTo } from '../components/GoTo'
 
-import { NavLink } from 'react-router-dom'
+import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa'
 
 export function Footer() {
     return (

@@ -1,13 +1,13 @@
 import InputMask from 'react-input-mask'
 
 interface FormInputProps{
-    name?: string
-    mandatory?: string
+    name: string
+    mandatory: boolean
     title: string
     mask?: any
     type: string
     placeholder?: string
-    handleOnChange: any
+    handleOnChange?: any
     value?: any
 }
 
@@ -15,7 +15,7 @@ export function FormInput({ name, mandatory, title, mask, type, placeholder, han
     return (
         <div className="w-full">
             <div className="w-full mb-1">
-                <label htmlFor={name} className='mr-1 text-orange-500 font-extrabold'>{mandatory}</label>{title}
+                <label htmlFor={name} className='mr-1 text-orange-500 font-extrabold'>{mandatory ? true && '*' : ''}</label>{title}
             </div>
                 <InputMask 
                 mask={mask}

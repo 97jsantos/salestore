@@ -1,21 +1,20 @@
 import InputMask from 'react-input-mask'
-
 interface InputProps{
-    name?: string
-    mandatory?: string
+    name: string
+    mandatory: boolean
     title: string;
-    mask?: any
+    mask: any
     type: string;
-    placeholder?: string
-    handleOnChange?: any
-    value?: any
+    placeholder: string
+    handleOnChange: any
+    value: any
 }
 
 export function NewProductImage({ name, mandatory, title, mask, type, placeholder, handleOnChange, value }:InputProps) {
     return (
         <div className="w-full">
             <div className="w-full mb-1">
-                <label htmlFor={name} className='mr-1 text-orange-500 font-extrabold'>{mandatory}</label>{title}
+                <label htmlFor={name} className='mr-1 text-orange-500 font-extrabold'>{mandatory ? true && '*' : ''}</label>{title}
             </div>
                 <InputMask 
                 mask={mask} 
