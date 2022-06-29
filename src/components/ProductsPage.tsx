@@ -71,7 +71,7 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
             .then((resp) => resp.json())
             .then((data) => {
                 console.log(data)
-                navigate(`/${product.category.url}`)
+                location.reload()
             })
             .catch((err) => console.log(err))
     }
