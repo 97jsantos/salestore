@@ -28,7 +28,7 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
 
     useEffect(() => {
         
-        fetch(`http://localhost:5000/products/`, {
+        fetch(`https://salestore-97jsantos.herokuapp.com/products/`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -42,7 +42,7 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
     }, [])
 
     function removeProduct(id) {
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://salestore-97jsantos.herokuapp.com/products/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
@@ -61,7 +61,7 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
         product.cartAmount = product.cartAmount + 1
         product.cartBudget = product.productBudget * product.cartAmount
 
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://salestore-97jsantos.herokuapp.com/products/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',

@@ -38,7 +38,7 @@ export function Cart() {
 
     useEffect(() => {
 
-        fetch('http://localhost:5000/products/', {
+        fetch('https://salestore-97jsantos.herokuapp.com/products/', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -65,7 +65,7 @@ export function Cart() {
         product.cartAmount = product.cartAmount - 1
         product.cartBudget = product.productBudget * product.cartAmount
 
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://salestore-97jsantos.herokuapp.com/products/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
