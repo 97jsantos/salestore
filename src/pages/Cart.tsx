@@ -75,7 +75,7 @@ export function Cart() {
         .then((resp) => resp.json())
         .then((data) => {
             console.log(data)
-            location.reload()
+            navigate(`/${product.category.url}`)
         })
         .catch((err) => console.log(err))
     }
