@@ -38,7 +38,7 @@ export function Cart() {
 
     useEffect(() => {
 
-        fetch('https://salestore-97jsantos.herokuapp.com/products/', {
+        fetch('https://salestore-api.herokuapp.com/products/', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -63,9 +63,9 @@ export function Cart() {
 
         product.productAmount = product.productAmount + 1
         product.cartAmount = product.cartAmount - 1
-        product.cartBudget = product.budget * product.cartAmount
+        product.cartBudget = product.productBudget * product.cartAmount
 
-        fetch(`https://salestore-97jsantos.herokuapp.com/products/${id}`, {
+        fetch(`https://salestore-api.herokuapp.com/products/${id}`, {
         method: 'PATCH',
         headers: {
             'Content-Type': 'application/json',
@@ -102,7 +102,7 @@ export function Cart() {
                             key={product.id}
                             alt={product.name}
                             title={product.name}
-                            productBudget={product.budget}
+                            productBudget={product.productBudget}
                             cartBudget={product.cartBudget}
                             cartAmount={product.cartAmount}
                             productData={product}

@@ -19,7 +19,7 @@ export function NewProductForm({ handleSubmit, productData }:NewProductFormProps
     const [product, setProduct] = useState(productData || {})
 
     useEffect(() => {
-        fetch("https://salestore-97jsantos.herokuapp.com/categories", {
+        fetch("https://salestore-api.herokuapp.com/categories", {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'
@@ -33,7 +33,7 @@ export function NewProductForm({ handleSubmit, productData }:NewProductFormProps
     }, [])
 
     useEffect(() => {
-        fetch("https://salestore-97jsantos.herokuapp.com/amount", {
+        fetch("https://salestore-api.herokuapp.com/amount", {
         method: "GET",
         headers: {
             'Content-Type': 'application/json'
@@ -109,10 +109,10 @@ export function NewProductForm({ handleSubmit, productData }:NewProductFormProps
                     mandatory={true}
                     title='Preço do produto (unidade):'
                     type='number'
-                    name='budget'
+                    name='productBudget'
                     placeholder='Digite o preço do produto'
                     handleOnChange={handleBudget}
-                    value={product.budget ? product.budget.value : ''} />
+                    value={product.productBudget ? product.productBudget.value : ''} />
 
                     <NewProductSelect 
                     mandatory={true}

@@ -5,7 +5,6 @@
   "scripts": {
     "start": "node server.js",
     "dev": "vite",
-    "backend": "json-server --watch db.json --port 5000",
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
