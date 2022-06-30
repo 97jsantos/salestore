@@ -102,7 +102,7 @@ export function Cart() {
                             key={product.id}
                             alt={product.name}
                             title={product.name}
-                            productBudget={product.productBudget}
+                            productBudget={product.budget}
                             cartBudget={product.cartBudget}
                             cartAmount={product.cartAmount}
                             productData={product}
