@@ -35,7 +35,7 @@ export function Navigation({ count }) {
                             <NavLink to="/registrar" className='font-bold opacity-60 hover:opacity-100 text-white outline-white text-sm lg:text-base'>Cadastre-se</NavLink>
                         </div>
                         <div className='relative'>
-                            <NavLink to="/carrinho" className='text-4xl text-white outline-white opacity-60 hover:opacity-100'><span className='text-lg text-white absolute left-9 -top-3'>{count}</span><GiShoppingCart /></NavLink>
+                            <NavLink to="/carrinho" className='text-4xl text-white outline-white opacity-60 hover:opacity-100'><GiShoppingCart /></NavLink>
                         </div>
                     </div>
                 </nav>
