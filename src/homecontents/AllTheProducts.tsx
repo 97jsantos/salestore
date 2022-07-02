@@ -42,7 +42,7 @@ export function AllTheProducts() {
                 setProduct(data)
             })
             .catch((err) => console.log(err))
-    },[])
+    },[product])
 
     function removeProduct(id) {
         fetch(`https://salestore-api.herokuapp.com/products/${id}`, {

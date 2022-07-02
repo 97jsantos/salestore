@@ -57,7 +57,7 @@ export function Cart() {
             }, 0))
         })
         .catch((err) => console.log(err))
-    },[])
+    },[product])
 
     function removeProduct(id, product) {
 

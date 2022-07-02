@@ -39,7 +39,7 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
             setProduct(data.filter((product: any) => product.category.url === getFilter))
         })
         .catch((err) => console.log(err))
-    }, [])
+    }, [product])
 
     function removeProduct(id) {
         fetch(`https://salestore-api.herokuapp.com/products/${id}`, {
