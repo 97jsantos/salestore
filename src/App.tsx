@@ -25,7 +25,7 @@ export function App() {
 
   return (
     <Router>
-      <Navigation count={count} />
+      <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/casa" element={<House />} />
