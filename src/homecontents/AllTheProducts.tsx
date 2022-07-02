@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
 import { Pagination } from "../components/Pagination"
 import { ProductCard } from "../components/ProductCard"
 
@@ -13,8 +12,6 @@ import lazer from '../images/lazer.png'
 export function AllTheProducts() {
 
     const [product, setProduct] = useState([])
-
-    const navigate = useNavigate()
 
     const [currentPage, setCurrentPage] = useState(0)
 
@@ -65,7 +62,7 @@ export function AllTheProducts() {
         product.cartBudget = product.productBudget * product.cartAmount
 
         fetch(`https://salestore-api.herokuapp.com/products/${id}`, {
-            method: 'PUT',
+            method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
             },
@@ -74,7 +71,6 @@ export function AllTheProducts() {
             .then((resp) => resp.json())
             .then((data) => {
                 console.log(data)
-                location.reload()
             })
             .catch((err) => console.log(err))
     }

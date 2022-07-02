@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
 
 import { Pagination } from "../components/Pagination"
 import { ProductCard } from "../components/ProductCard"
@@ -11,8 +10,6 @@ interface ProductsPageProps {
 export function ProductsPage({ image, getFilter }:ProductsPageProps) {
 
     const [ product, setProduct ] = useState([])
-
-    const navigate = useNavigate()
 
     const [ currentPage, setCurrentPage ] = useState(0)
 
@@ -71,7 +68,6 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
             .then((resp) => resp.json())
             .then((data) => {
                 console.log(data)
-                navigate(`/${product.category.url}`)
             })
             .catch((err) => console.log(err))
     }

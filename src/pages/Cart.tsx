@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
 import { FormButton } from "../components/FormButton"
 
 import casa from '../images/casa.png'
@@ -21,8 +20,6 @@ export function Cart() {
     const [ cartAmount, setCartAmount ] = useState(0)
 
     const [ cartBudget, setCartBudget ] = useState(0)
-
-    const navigate = useNavigate()
 
     const [currentPage, setCurrentPage] = useState(0)
 
@@ -75,7 +72,6 @@ export function Cart() {
         .then((resp) => resp.json())
         .then((data) => {
             console.log(data)
-            navigate(`/${product.category.url}`)
         })
         .catch((err) => console.log(err))
     }
