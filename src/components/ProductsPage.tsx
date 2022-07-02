@@ -92,7 +92,6 @@ export function ProductsPage({ image, getFilter }:ProductsPageProps) {
                         title={product.name}
                         productBudget={product.productBudget}
                         productAmount={product.productAmount}
-                        cartAmount={product.cartAmount}
                         key={product.id}
                         productData={product}
                         handleRemove={removeProduct}

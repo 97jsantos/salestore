@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-import { incremented, decremented } from '../store/CounterSlice'
 import { useAppDispatch } from '../store/Hooks'
 
 import { BsTrash } from 'react-icons/bs'
@@ -8,7 +7,6 @@ interface ProductCardProps {
     image: any
     alt: string
     title: string
-    cartAmount: number
     productBudget: number
     productAmount: number
     id: number
@@ -18,7 +16,7 @@ interface ProductCardProps {
     handleDisabled: any
 }
 
-export function ProductCard({ id, image, alt, title, productBudget, productAmount, cartAmount, handleRemove, addProduct, productData, handleDisabled }:ProductCardProps) {
+export function ProductCard({ id, image, alt, title, productBudget, productAmount, handleRemove, addProduct, productData, handleDisabled }:ProductCardProps) {
 
     const [product, setProduct] = useState(productData || {})
 
@@ -27,7 +25,6 @@ export function ProductCard({ id, image, alt, title, productBudget, productAmoun
     function handleOnClickTrash(event) {
         event.preventDefault()
         handleRemove(id)
-        dispatch(decremented(cartAmount))
     }
 
     function handleOnSubmit(event) {
@@ -35,10 +32,6 @@ export function ProductCard({ id, image, alt, title, productBudget, productAmoun
         addProduct(id, product)
         setProduct
     }
-
-    function handleOnClickCart() {
-        dispatch(incremented(1))
-      }
 
     return (
         <form onSubmit={handleOnSubmit} className="flex flex-col bg-white lg:h-96 lg:w-64 lg:mx-8 lg:mb-16
@@ -55,7 +48,7 @@ export function ProductCard({ id, image, alt, title, productBudget, productAmoun
                 <p className="lg:mb-2 lg:h-12">{title}</p>
                 <p className="lg:mb-2 font-bold lg:text-lg text-zinc-500 flex justify-start">{productBudget.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
                 <p className="lg:mb-2 mb-1 text-sm text-zinc-500 flex justify-end">Disponível: {productAmount}</p>
-                <button disabled={handleDisabled} onClick={handleOnClickCart} className="bg-orange-500 text-white rounded-md lg:h-10 h-7 lg:text-base text-sm opacity-90 hover:opacity-100 disabled:opacity-50">Adicionar ao carrinho</button>
+                <button disabled={handleDisabled} className="bg-orange-500 text-white rounded-md lg:h-10 h-7 lg:text-base text-sm opacity-90 hover:opacity-100 disabled:opacity-50">Adicionar ao carrinho</button>
             </div>
         </form>
     )

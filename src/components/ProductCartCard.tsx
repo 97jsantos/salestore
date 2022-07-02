@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-import { decremented } from '../store/CounterSlice'
 import { useAppDispatch } from '../store/Hooks'
 
 import { BsCartX } from 'react-icons/bs'
@@ -25,7 +24,6 @@ export function ProductCartCard({ id, image, alt, title, productBudget, cartBudg
     function handleOnClick(event) {
         event.preventDefault()
         handleRemove(id, product)
-        dispatch(decremented(1))
         setProduct
     }
 
