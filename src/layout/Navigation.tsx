@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import { GoTo } from '../components/GoTo'
@@ -6,7 +6,30 @@ import { GoTo } from '../components/GoTo'
 import { GiShoppingCart } from 'react-icons/gi'
 import { MdSearch, MdMenu } from 'react-icons/md'
 
-export function Navigation({ count }) {
+export function Navigation() {
+
+    const [product, setProduct] = useState([])
+
+    const [ cartAmount, setCartAmount ] = useState(0)
+
+    useEffect(() => {
+
+        fetch('https://salestore-api.herokuapp.com/products/', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then((resp) => resp.json())
+        .then((data) => {
+            setProduct(data.filter((product: any) => product.cartAmount >= 1))
+
+            setCartAmount(data.reduce((sum, product) => {
+                return sum + product.cartAmount;
+            }, 0))
+        })
+        .catch((err) => console.log(err))
+    },[product])
 
     const [isNavExpanded, setIsNavExpanded] = useState(false)
     
@@ -35,7 +58,7 @@ export function Navigation({ count }) {
                             <NavLink to="/registrar" className='font-bold opacity-60 hover:opacity-100 text-white outline-white text-sm lg:text-base'>Cadastre-se</NavLink>
                         </div>
                         <div className='relative'>
-                            <NavLink to="/carrinho" className='text-4xl text-white outline-white opacity-60 hover:opacity-100'><GiShoppingCart /></NavLink>
+                            <NavLink to="/carrinho" className='text-4xl text-white outline-white opacity-60 hover:opacity-100'><span className='text-lg text-white absolute left-9 -top-3'>{cartAmount}</span><GiShoppingCart /></NavLink>
                         </div>
                     </div>
                 </nav>
